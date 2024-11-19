@@ -1,15 +1,61 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+# Archivos y directorios específicos de Android Studio
+.idea/
+.gradle/
 local.properties
+/.cxx/
+*.iml
+
+# Archivos de compilación
+/build/
+*/build/
+
+# Archivos de configuración de IntelliJ
+out/
+
+# Archivos de registro
+*.log
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración de Android
+*.apk
+*.ap_
+*.dex
+*.class
+*.so
+*.jar
+*.war
+*.ear
+
+# Archivos de configuración de ProGuard
+proguard/
+proguard/*.txt
+proguard/*.pro
+
+# Archivos de configuración de NDK
+obj/
+*.hprof
+
+# Archivos de configuración de Gradle
+.gradle/
+build/
+*/build/
+!gradle-wrapper.jar
+
+# Archivos de configuración de Maven
+pom.xml
+pom.xml.asc
+*.pom
+*.pom.asc
+
+# Archivos de configuración de Kotlin
+*.kotlin_metadata
+*.kotlin_module
+
+# Archivos de configuración de Java
+*.class
+*.jar
+*.war
+*.ear

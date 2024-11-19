@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Sniffle Videocall</string>
+    <string name="bienvenido">¡Bienvenido a Sniffle Video Call!</string>
+    <string name="mensaje_home">Conéctate fácilmente con tus amigos y familiares</string>
+    <string name="crear_reunion">Crear Reunión</string>
+    <string name="unirse_reunion">Unirse a Reunión</string>
+    <string name="powered_by">Powered by Sebas Lon</string>
 </resources>
