@@ -122,13 +122,19 @@ public class VideoRoom extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_room);
 
-        // Generar un nombre de canal aleatorio de 4 dígitos con letras y números
-        channelName = generateRandomChannelName();
+        // Verifica si el código de la sala fue pasado desde JoinRoom
+        channelName = getIntent().getStringExtra("channelName");
+
+        if (channelName == null) {
+            // Si no se pasó un código de canal, se genera uno aleatorio para la creación de la sala
+            channelName = generateRandomChannelName();
+        }
+
         TextView tvRoomInfo = findViewById(R.id.tv_room_info);
         tvRoomInfo.setText("# SALA: " + channelName);
 
         if (checkPermissions()) {
-            initializeAndJoinChannel();
+            initializeAndJoinChannel(); // Unirse al canal con el código proporcionado
         } else {
             ActivityCompat.requestPermissions(this, getRequiredPermissions(), 22);
         }
@@ -146,7 +152,6 @@ public class VideoRoom extends AppCompatActivity {
         btnSwitchCamera.setOnClickListener(v -> controls.toggleCamera(btnSwitchCamera));
         btnEndCall.setOnClickListener(v -> controls.endCall(VideoRoom.this));
     }
-
 
     private String generateRandomChannelName() {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

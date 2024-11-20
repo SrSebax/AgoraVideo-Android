@@ -1,5 +1,6 @@
 package com.example.snifflevideocall;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -32,8 +33,11 @@ public class JoinRoom extends AppCompatActivity {
                     pinDigit3.getText().toString() + pinDigit4.getText().toString();
 
             if (pinCode.length() == 4 && pinCode.matches("[A-Z0-9]+")) {
-                // Lógica para unirse a la sala
-                Toast.makeText(JoinRoom.this, "Uniéndose a la sala: " + pinCode, Toast.LENGTH_SHORT).show();
+                // Si el código es válido, inicia la actividad VideoRoom pasando el código como channelName
+                Intent intent = new Intent(JoinRoom.this, VideoRoom.class);
+                intent.putExtra("channelName", pinCode); // Pasando el código al VideoRoom
+                startActivity(intent);
+                finish(); // Finaliza la actividad JoinRoom
             } else {
                 Toast.makeText(JoinRoom.this, "Por favor, ingrese un código válido de 4 caracteres.", Toast.LENGTH_SHORT).show();
             }
