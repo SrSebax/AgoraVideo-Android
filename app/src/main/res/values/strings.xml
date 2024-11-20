@@ -8,4 +8,7 @@
     <string name="hang_up">Colgar</string>
     <string name="toggle_camera">Apagar/Encender Cámara</string>
     <string name="toggle_mic">Apagar/Encender Micrófono</string>
+    <string name="mute">Mute</string>
+    <string name="end_call">End Call</string>
+    <string name="switch_camera">Switch Camera</string>
 </resources>

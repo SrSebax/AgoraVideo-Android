@@ -3,7 +3,6 @@ package com.example.snifflevideocall;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,8 +24,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Acción al presionar "Unirse a Reunión"
-        joinMeetingButton.setOnClickListener(v ->
-                Toast.makeText(MainActivity.this, "Función 'Unirse a Reunión' no implementada aún.", Toast.LENGTH_SHORT).show()
-        );
+        joinMeetingButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, JoinRoom.class);
+            startActivity(intent); // Inicia la actividad de JoinRoom
+        });
     }
 }

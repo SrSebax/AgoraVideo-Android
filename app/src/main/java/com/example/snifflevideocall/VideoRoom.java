@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.SurfaceView;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -119,12 +120,10 @@ public class VideoRoom extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.video_room); // Cambiado para usar el layout correcto
+        setContentView(R.layout.activity_video_room);
 
         // Generar un nombre de canal aleatorio de 4 dígitos con letras y números
         channelName = generateRandomChannelName();
-
-        // Actualizar el TextView con el nombre del canal
         TextView tvRoomInfo = findViewById(R.id.tv_room_info);
         tvRoomInfo.setText("# SALA: " + channelName);
 
@@ -133,7 +132,21 @@ public class VideoRoom extends AppCompatActivity {
         } else {
             ActivityCompat.requestPermissions(this, getRequiredPermissions(), 22);
         }
+
+        // Crear instancia de VideoRoomControls
+        VideoRoomControls controls = new VideoRoomControls(this, mRtcEngine);
+
+        // Configuración de botones
+        ImageView btnMute = findViewById(R.id.btn_mute);
+        ImageView btnSwitchCamera = findViewById(R.id.btn_switch_camera);
+        ImageView btnEndCall = findViewById(R.id.btn_end_call);
+
+        // Agregar listeners
+        btnMute.setOnClickListener(v -> controls.toggleMic(btnMute));
+        btnSwitchCamera.setOnClickListener(v -> controls.toggleCamera(btnSwitchCamera));
+        btnEndCall.setOnClickListener(v -> controls.endCall(VideoRoom.this));
     }
+
 
     private String generateRandomChannelName() {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

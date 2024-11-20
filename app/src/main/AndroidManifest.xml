@@ -26,6 +26,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".VideoRoom" />
+        <activity android:name=".JoinRoom" />
 
     </application>
 

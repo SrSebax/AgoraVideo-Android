@@ -1,26 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Text   -->
+    <color name="primary_text">#444141</color>
+    <color name="secondary_text">#757575</color>
+
+    <!-- Palette   -->
     <color name="background_color">#F5F5F5</color>
     <color name="primary">#1976D2</color>
     <color name="secondary">#616161</color>
-    <color name="secondary_text">#757575</color>
-    <color name="tertiary_text">#BDBDBD</color>
+
+    <!-- Color   -->
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
-    <color name="light_blue">#BBDEFB</color>
-    <color name="dark_red">#D32F2F</color>
-
-    <color name="dark_background">#1A1A1A</color>
-    <color name="light_gray">#D1D1D1</color>
-    <color name="primary_text">#E0E0E0</color>
     <color name="red">#FF4C4C</color>
     <color name="green">#4CAF50</color>
     <color name="blue">#2196F3</color>
 
-    <!-- Fondo de los controles -->
-    <color name="controls_background">#2E2E2E</color>
+    <!-- Button   -->
+    <color name="controls_background">#5A5A5A</color>
 
-    <!-- Fondos de botones activos/desactivados -->
-    <color name="button_active">#4CAF50</color>
-    <color name="button_inactive">#9E9E9E</color>
+    <!--    <color name="tertiary_text">#BDBDBD</color>-->
+    <!--    <color name="white">#FFFFFF</color>-->
+    <!--    <color name="black">#000000</color>-->
+    <!--    <color name="light_blue">#BBDEFB</color>-->
+    <!--    <color name="dark_red">#D32F2F</color>-->
+
+    <!--    <color name="dark_background">#1A1A1A</color>-->
+    <!--    <color name="light_gray">#D1D1D1</color>-->
+    <!--    <color name="primary_text">#444141</color>-->
+    <!--    <color name="red">#FF4C4C</color>-->
+    <!--    <color name="green">#4CAF50</color>-->
+    <!--    <color name="blue">#2196F3</color>-->
+
+    <!--    &lt;!&ndash; Fondo de los controles &ndash;&gt;-->
+    <!--    <color name="controls_background">#5A5A5A</color>-->
+
+    <!--    &lt;!&ndash; Fondos de botones activos/desactivados &ndash;&gt;-->
+    <!--    <color name="button_active">#4CAF50</color>-->
+    <!--    <color name="button_inactive">#9E9E9E</color>-->
 </resources>
