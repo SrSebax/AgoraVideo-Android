@@ -5,4 +5,7 @@
     <string name="crear_reunion">Crear Reunión</string>
     <string name="unirse_reunion">Unirse a Reunión</string>
     <string name="powered_by">Powered by Sebas Lon</string>
+    <string name="hang_up">Colgar</string>
+    <string name="toggle_camera">Apagar/Encender Cámara</string>
+    <string name="toggle_mic">Apagar/Encender Micrófono</string>
 </resources>

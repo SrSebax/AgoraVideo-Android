@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.SurfaceView;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,8 +22,8 @@ import io.agora.rtc2.video.VideoCanvas;
 
 public class VideoRoom extends AppCompatActivity {
     private String appId = "efc3a59a74ba4640a4c39745320fb06f"; // Reemplaza con tu App ID
-    private String channelName = "12345"; // Nombre del canal
-    private String token = null; // Reemplaza con tu token si es necesario
+    private String channelName;
+    private String token = null;
 
     private RtcEngine mRtcEngine;
 
@@ -120,11 +121,28 @@ public class VideoRoom extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.video_room); // Cambiado para usar el layout correcto
 
+        // Generar un nombre de canal aleatorio de 4 dígitos con letras y números
+        channelName = generateRandomChannelName();
+
+        // Actualizar el TextView con el nombre del canal
+        TextView tvRoomInfo = findViewById(R.id.tv_room_info);
+        tvRoomInfo.setText("# SALA: " + channelName);
+
         if (checkPermissions()) {
             initializeAndJoinChannel();
         } else {
             ActivityCompat.requestPermissions(this, getRequiredPermissions(), 22);
         }
+    }
+
+    private String generateRandomChannelName() {
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        StringBuilder channelName = new StringBuilder();
+        for (int i = 0; i < 4; i++) {
+            int index = (int) (Math.random() * characters.length());
+            channelName.append(characters.charAt(index));
+        }
+        return channelName.toString();
     }
 
     @Override
