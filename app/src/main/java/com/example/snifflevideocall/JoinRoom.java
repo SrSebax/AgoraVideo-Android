@@ -28,6 +28,12 @@ public class JoinRoom extends AppCompatActivity {
         pinDigit2.addTextChangedListener(new PinTextWatcher(pinDigit3));
         pinDigit3.addTextChangedListener(new PinTextWatcher(pinDigit4));
 
+        // Configurar los TextWatchers para convertir el texto a mayúsculas
+        pinDigit1.addTextChangedListener(new UpperCaseTextWatcher(pinDigit1));
+        pinDigit2.addTextChangedListener(new UpperCaseTextWatcher(pinDigit2));
+        pinDigit3.addTextChangedListener(new UpperCaseTextWatcher(pinDigit3));
+        pinDigit4.addTextChangedListener(new UpperCaseTextWatcher(pinDigit4));
+
         joinButton.setOnClickListener(v -> {
             String pinCode = pinDigit1.getText().toString() + pinDigit2.getText().toString() +
                     pinDigit3.getText().toString() + pinDigit4.getText().toString();
@@ -65,5 +71,34 @@ public class JoinRoom extends AppCompatActivity {
 
         @Override
         public void afterTextChanged(Editable editable) {}
+    }
+
+    // Clase para el TextWatcher que convierte a mayúsculas
+    private static class UpperCaseTextWatcher implements TextWatcher {
+
+        private final EditText editText;
+
+        public UpperCaseTextWatcher(EditText editText) {
+            this.editText = editText;
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {}
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int start, int before, int after) {}
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            // Convertir el texto a mayúsculas
+            String currentText = editable.toString();
+            if (!currentText.equals(currentText.toUpperCase())) {
+                // Evitar bucles de actualización
+                editText.removeTextChangedListener(this);
+                editText.setText(currentText.toUpperCase());
+                editText.setSelection(currentText.length());  // Coloca el cursor al final
+                editText.addTextChangedListener(this);
+            }
+        }
     }
 }
